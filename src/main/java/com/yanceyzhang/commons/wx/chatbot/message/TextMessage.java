@@ -57,7 +57,7 @@ public class TextMessage implements Message {
         }
         textContent.put("content", text);
         if(isAtAll) {
-        	if(mentionedMobileList==null) mentionedMobileList=new ArrayList<>();
+        	if(mentionedMobileList==null) mentionedMobileList=new ArrayList<String>();
         	mentionedMobileList.add("@all");
         }
         if (mentionedMobileList != null && !mentionedMobileList.isEmpty()) {
