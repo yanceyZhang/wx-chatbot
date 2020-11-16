@@ -67,9 +67,9 @@ public class Base64Utils {
 			while ((len = is.read(by)) != -1) {
 				data.write(by, 0, len);
 			}
-			
-			String base64= Base64.getEncoder().encodeToString(data.toByteArray());
-			String md5= DigestUtils.md5Hex(is);
+			byte[] b=data.toByteArray();
+			String base64= Base64.getEncoder().encodeToString(b);
+			String md5= DigestUtils.md5Hex(b);
 			is.close();
 			conn.disconnect();
 			data.close();
@@ -114,9 +114,9 @@ public class Base64Utils {
 	
 	public static void main(String[] args) throws Exception {
 		// 本地图片地址
-		String url = "C:/Users/yance/Desktop/qywx_15952244277616.png";
-		ImageBase64Md5  imageBase64Md5 = Base64Utils.ImageToBase64ByLocal(url);
-		System.out.println(imageBase64Md5.getMd5());
+//		String url = "C:/Users/yance/Desktop/qywx_15952244277616.png";
+//		ImageBase64Md5  imageBase64Md5 = Base64Utils.ImageToBase64ByLocal(url);
+//		System.out.println(imageBase64Md5.getMd5());
 		
 		// 在线图片地址
 		String string = "https://t8.baidu.com/it/u=3775602298,2697846462&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1595834379&t=f2fc08916bdec3f7b3b8c0e018d04ae6";
