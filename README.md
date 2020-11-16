@@ -8,7 +8,7 @@ src/test/java/com/yanceyzhang/chatbot/demo/ 下面有测试类
 
  
 ## 企业微信机器人官方文档
-https://work.weixin.qq.com/api/doc#90000/90135/91760
+https://work.weixin.qq.com/api/doc/90000/90136/91770
 
 ## 博主有话说：
 * 希望喜欢的给个star！
