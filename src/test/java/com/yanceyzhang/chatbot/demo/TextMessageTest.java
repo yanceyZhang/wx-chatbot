@@ -21,7 +21,7 @@ public class TextMessageTest {
         mentionedMobileList.add("1832135XXXX");//@群内成员  手机号
         message.setMentionedMobileList(mentionedMobileList);
         message.setIsAtAll(true);//@所有人
-        SendResult result = WxChatbotClient.send(TestConfig.CHATBOT_WEBHOOK, message);
+        SendResult result = WxChatbotClient.send("key", message);
         System.out.println(result);
     }
 }

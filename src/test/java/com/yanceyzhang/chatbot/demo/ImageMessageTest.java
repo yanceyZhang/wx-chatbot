@@ -19,7 +19,7 @@ public class ImageMessageTest {
     	String string = "https://c-ssl.duitang.com/uploads/blog/202008/22/20200822114634_2b3e0.thumb.1000_0.png";
 		ImageBase64Md5  image = Base64Utils.ImageToBase64ByOnline(string);
 		ImageMessage imageMessage = new ImageMessage(image.getBase64(),image.getMd5());
-        SendResult result = WxChatbotClient.send(TestConfig.CHATBOT_WEBHOOK, imageMessage);
+        SendResult result = WxChatbotClient.send("key", imageMessage);
         System.out.println(result);
     }
 }

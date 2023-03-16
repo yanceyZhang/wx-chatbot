@@ -10,12 +10,15 @@ import java.util.Map;
 
 
 /**
+ * 文本类型
  */
 public class TextMessage implements Message {
 
     private String text;
     private List<String> mentionedMobileList;
+    private List<String> mentionedList;
     private boolean isAtAll;
+    
 
     public TextMessage(String text) {
         this.text = text;
@@ -50,7 +53,6 @@ public class TextMessage implements Message {
 	public String toJsonString() {
         Map<String, Object> items = new HashMap<String, Object>();
         items.put("msgtype", "text");
-
         Map<String, Object> textContent = new HashMap<String, Object>();
         if (StringUtils.isBlank(text)) {
             throw new IllegalArgumentException("text should not be blank");
@@ -59,6 +61,9 @@ public class TextMessage implements Message {
         if(isAtAll) {
         	if(mentionedMobileList==null) mentionedMobileList=new ArrayList<String>();
         	mentionedMobileList.add("@all");
+        }
+        if(mentionedList!=null && !mentionedList.isEmpty()) {
+        	textContent.put("mentioned_list", mentionedList);
         }
         if (mentionedMobileList != null && !mentionedMobileList.isEmpty()) {
         	textContent.put("mentioned_mobile_list", mentionedMobileList);

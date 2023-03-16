@@ -1,7 +1,9 @@
 package com.yanceyzhang.commons.wx.chatbot.utils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +40,14 @@ public class Base64Utils {
 			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			if(in!=null) {
+				try {
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		String base64 = Base64.getEncoder().encodeToString(data);
 		return new ImageBase64Md5(base64, DigestUtils.md5Hex(data));
@@ -110,6 +120,43 @@ public class Base64Utils {
 			System.out.println(e.getMessage());
 			return false;
 		}
+	}
+	
+	public static byte[] fileToBytes(File file) {
+		byte[] buffer = null;
+		FileInputStream fis = null;
+		ByteArrayOutputStream bos = null;
+		try {
+		    fis = new FileInputStream(file);
+		    bos = new ByteArrayOutputStream();
+		    byte[] b = new byte[1024];
+		    int n;
+		    while ((n = fis.read(b)) != -1) {
+		        bos.write(b, 0, n);
+		    }
+		    buffer = bos.toByteArray();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+		    try {
+		        if (null != bos) {
+		            bos.close();
+		        }
+		    } catch (IOException ex) {
+		    	ex.printStackTrace();
+		    } finally{
+		        try {
+		            if(null!=fis){
+		                fis.close();
+		            }
+		        } catch (IOException ex) {
+		        	ex.printStackTrace();
+		        }
+		    }
+		}
+		return buffer;
 	}
 	
 	public static void main(String[] args) throws Exception {

@@ -1,5 +1,10 @@
 package com.yanceyzhang.commons.wx.chatbot.message;
 
+/**
+ * 图文
+ * @author 
+ *
+ */
 public class NewsArticle {
 	private String title;
     private String description;
