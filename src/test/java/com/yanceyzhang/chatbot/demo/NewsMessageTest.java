@@ -25,7 +25,7 @@ public class NewsMessageTest {
     	
     	NewsMessage message=new NewsMessage();
     	message.addNewsArticle(article);
-    	SendResult result = client.send(TestConfig.CHATBOT_WEBHOOK, message);
+    	SendResult result = client.send("key", message);
         System.out.println(result);
     }
 

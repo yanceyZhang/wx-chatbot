@@ -80,7 +80,6 @@ public class MarkdownMessage implements Message {
         result.put("msgtype", "markdown");
 
         Map<String, Object> markdown = new HashMap<String, Object>();
-
         StringBuffer markdownText = new StringBuffer();
         for (String item : items) {
             markdownText.append(item + "\n");

@@ -51,7 +51,7 @@ public class MarkdownMessageTest {
         message.add(MarkdownMessage.getImageText("http://img01.taobaocdn.com/top/i1/LB1GCdYQXXXXXXtaFXXXXXXXXXX"));
         message.add(MarkdownMessage.getLinkText("This is a link", "https://work.weixin.qq.com/api/doc#90000/90135/91760"));
 
-        SendResult result = WxChatbotClient.send(TestConfig.CHATBOT_WEBHOOK, message);
+        SendResult result = WxChatbotClient.send("key", message);
         System.out.println(result);
     }
     
@@ -63,7 +63,7 @@ public class MarkdownMessageTest {
 			 message.add("\n\n");
 			 message.add(MarkdownMessage.getReferenceText("用户名： "+"唐三"));
 			 message.add("\n\n");
-        SendResult result = WxChatbotClient.send(TestConfig.CHATBOT_WEBHOOK, message);
+        SendResult result = WxChatbotClient.send("key", message);
         System.out.println(result);
     }
 }
